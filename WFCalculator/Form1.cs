@@ -16,5 +16,15 @@ namespace WFCalculator
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            bBack.Text = "\u2190";
+            bSub.Text = "\u2212";
+            bMul.Text = "\u00D7";
+            bDiv.Text = "\u00F7";
+            bSign.Text = "\u00B1";
+
+        }
     }
 }
