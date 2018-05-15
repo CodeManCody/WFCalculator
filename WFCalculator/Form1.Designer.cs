@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.displayBox = new System.Windows.Forms.RichTextBox();
             this.bClear = new System.Windows.Forms.Button();
             this.bPar = new System.Windows.Forms.Button();
             this.bBack = new System.Windows.Forms.Button();
@@ -49,18 +48,8 @@
             this.b0 = new System.Windows.Forms.Button();
             this.bDec = new System.Windows.Forms.Button();
             this.bEqual = new System.Windows.Forms.Button();
+            this.displayBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
-            // 
-            // displayBox
-            // 
-            this.displayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayBox.Location = new System.Drawing.Point(130, 76);
-            this.displayBox.Name = "displayBox";
-            this.displayBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.displayBox.Size = new System.Drawing.Size(724, 225);
-            this.displayBox.TabIndex = 0;
-            this.displayBox.Text = "";
-            this.displayBox.UseWaitCursor = true;
             // 
             // bClear
             // 
@@ -111,6 +100,7 @@
             this.b1.TabIndex = 12;
             this.b1.Text = "1";
             this.b1.UseVisualStyleBackColor = true;
+            this.b1.Click += new System.EventHandler(this.b1_Click);
             // 
             // b4
             // 
@@ -121,6 +111,7 @@
             this.b4.TabIndex = 13;
             this.b4.Text = "4";
             this.b4.UseVisualStyleBackColor = true;
+            this.b4.Click += new System.EventHandler(this.b4_Click);
             // 
             // b7
             // 
@@ -131,6 +122,7 @@
             this.b7.TabIndex = 14;
             this.b7.Text = "7";
             this.b7.UseVisualStyleBackColor = true;
+            this.b7.Click += new System.EventHandler(this.b7_Click);
             // 
             // bSign
             // 
@@ -151,6 +143,7 @@
             this.b2.TabIndex = 16;
             this.b2.Text = "2";
             this.b2.UseVisualStyleBackColor = true;
+            this.b2.Click += new System.EventHandler(this.b2_Click);
             // 
             // b3
             // 
@@ -161,6 +154,7 @@
             this.b3.TabIndex = 17;
             this.b3.Text = "3";
             this.b3.UseVisualStyleBackColor = true;
+            this.b3.Click += new System.EventHandler(this.b3_Click);
             // 
             // bSub
             // 
@@ -181,6 +175,7 @@
             this.b5.TabIndex = 19;
             this.b5.Text = "5";
             this.b5.UseVisualStyleBackColor = true;
+            this.b5.Click += new System.EventHandler(this.b5_Click);
             // 
             // b6
             // 
@@ -191,6 +186,7 @@
             this.b6.TabIndex = 20;
             this.b6.Text = "6";
             this.b6.UseVisualStyleBackColor = true;
+            this.b6.Click += new System.EventHandler(this.b6_Click);
             // 
             // bMul
             // 
@@ -211,6 +207,7 @@
             this.b8.TabIndex = 22;
             this.b8.Text = "8";
             this.b8.UseVisualStyleBackColor = true;
+            this.b8.Click += new System.EventHandler(this.b8_Click);
             // 
             // b9
             // 
@@ -221,6 +218,7 @@
             this.b9.TabIndex = 23;
             this.b9.Text = "9";
             this.b9.UseVisualStyleBackColor = true;
+            this.b9.Click += new System.EventHandler(this.b9_Click);
             // 
             // bDiv
             // 
@@ -241,6 +239,7 @@
             this.b0.TabIndex = 25;
             this.b0.Text = "0";
             this.b0.UseVisualStyleBackColor = true;
+            this.b0.Click += new System.EventHandler(this.b0_Click);
             // 
             // bDec
             // 
@@ -262,6 +261,17 @@
             this.bEqual.TabIndex = 27;
             this.bEqual.Text = "=";
             this.bEqual.UseVisualStyleBackColor = true;
+            // 
+            // displayBox
+            // 
+            this.displayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayBox.Location = new System.Drawing.Point(130, 76);
+            this.displayBox.Name = "displayBox";
+            this.displayBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.displayBox.Size = new System.Drawing.Size(724, 225);
+            this.displayBox.TabIndex = 0;
+            this.displayBox.Text = "";
+            this.displayBox.UseWaitCursor = true;
             // 
             // Form1
             // 
@@ -299,8 +309,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox displayBox;
         private System.Windows.Forms.Button bClear;
         private System.Windows.Forms.Button bPar;
         private System.Windows.Forms.Button bBack;
@@ -321,6 +329,7 @@
         private System.Windows.Forms.Button b0;
         private System.Windows.Forms.Button bDec;
         private System.Windows.Forms.Button bEqual;
+        private System.Windows.Forms.RichTextBox displayBox;
     }
 }
 

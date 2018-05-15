@@ -25,5 +25,55 @@ namespace WFCalculator
             bDiv.Text = "\u00F7";
             bSign.Text = "\u00B1";
         }
+
+        private void b1_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.pushBuff("1");
+        }
+
+        private void b2_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.pushBuff("2");
+        }
+
+        private void b3_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.pushBuff("3");
+        }
+
+        private void b4_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.pushBuff("4");
+        }
+
+        private void b5_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.pushBuff("5");
+        }
+
+        private void b6_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.pushBuff("6");
+        }
+
+        private void b7_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.pushBuff("7");
+        }
+
+        private void b8_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.pushBuff("8");
+        }
+
+        private void b9_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.pushBuff("9");
+        }
+
+        private void b0_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.pushBuff("0");
+        }
     }
 }
