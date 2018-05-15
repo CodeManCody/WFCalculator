@@ -24,7 +24,6 @@ namespace WFCalculator
             bMul.Text = "\u00D7";
             bDiv.Text = "\u00F7";
             bSign.Text = "\u00B1";
-
         }
     }
 }
