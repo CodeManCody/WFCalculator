@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.displayBox = new System.Windows.Forms.RichTextBox();
             this.bClear = new System.Windows.Forms.Button();
             this.bPar = new System.Windows.Forms.Button();
             this.bBack = new System.Windows.Forms.Button();
@@ -51,16 +51,16 @@
             this.bEqual = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // displayBox
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(130, 76);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.richTextBox1.Size = new System.Drawing.Size(724, 225);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.UseWaitCursor = true;
+            this.displayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayBox.Location = new System.Drawing.Point(130, 76);
+            this.displayBox.Name = "displayBox";
+            this.displayBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.displayBox.Size = new System.Drawing.Size(724, 225);
+            this.displayBox.TabIndex = 0;
+            this.displayBox.Text = "";
+            this.displayBox.UseWaitCursor = true;
             // 
             // bClear
             // 
@@ -289,7 +289,7 @@
             this.Controls.Add(this.bBack);
             this.Controls.Add(this.bPar);
             this.Controls.Add(this.bClear);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.displayBox);
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 55);
             this.Text = "Calculator";
@@ -300,7 +300,7 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox displayBox;
         private System.Windows.Forms.Button bClear;
         private System.Windows.Forms.Button bPar;
         private System.Windows.Forms.Button bBack;
