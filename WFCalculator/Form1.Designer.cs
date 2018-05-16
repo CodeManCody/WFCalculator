@@ -60,6 +60,7 @@
             this.bClear.TabIndex = 1;
             this.bClear.Text = "C";
             this.bClear.UseVisualStyleBackColor = true;
+            this.bClear.Click += new System.EventHandler(this.bClear_Click);
             // 
             // bPar
             // 
@@ -70,6 +71,7 @@
             this.bPar.TabIndex = 9;
             this.bPar.Text = "( )";
             this.bPar.UseVisualStyleBackColor = true;
+            this.bPar.Click += new System.EventHandler(this.bPar_Click);
             // 
             // bBack
             // 
@@ -90,6 +92,7 @@
             this.bAdd.TabIndex = 11;
             this.bAdd.Text = "+";
             this.bAdd.UseVisualStyleBackColor = true;
+            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 
             // b1
             // 
@@ -165,6 +168,7 @@
             this.bSub.TabIndex = 18;
             this.bSub.Text = "-";
             this.bSub.UseVisualStyleBackColor = true;
+            this.bSub.Click += new System.EventHandler(this.bSub_Click);
             // 
             // b5
             // 
@@ -197,6 +201,7 @@
             this.bMul.TabIndex = 21;
             this.bMul.Text = "x";
             this.bMul.UseVisualStyleBackColor = true;
+            this.bMul.Click += new System.EventHandler(this.bMul_Click);
             // 
             // b8
             // 
@@ -229,6 +234,7 @@
             this.bDiv.TabIndex = 24;
             this.bDiv.Text = "/";
             this.bDiv.UseVisualStyleBackColor = true;
+            this.bDiv.Click += new System.EventHandler(this.bDiv_Click);
             // 
             // b0
             // 
@@ -261,13 +267,14 @@
             this.bEqual.TabIndex = 27;
             this.bEqual.Text = "=";
             this.bEqual.UseVisualStyleBackColor = true;
+            this.bEqual.Click += new System.EventHandler(this.bEqual_Click);
             // 
             // displayBox
             // 
             this.displayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayBox.Location = new System.Drawing.Point(130, 76);
             this.displayBox.Name = "displayBox";
-            this.displayBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.displayBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.displayBox.Size = new System.Drawing.Size(724, 225);
             this.displayBox.TabIndex = 0;
             this.displayBox.Text = "";
