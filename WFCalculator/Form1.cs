@@ -109,18 +109,16 @@ namespace WFCalculator
             displayBox.Text = Calculate.calcExp(displayBox.Text);
         }
 
-        private void bPar_Click(object sender, EventArgs e)
+        private void bL_Par_Click(object sender, EventArgs e)
         {
-            if (parCount == 2)
-            {
-                displayBox.Text = Calculate.pushOp(")");
-                parCount--;
-            }
-            else
-            {
-                displayBox.Text = Calculate.pushOp("(");
-                parCount++;
-            }
+            displayBox.Text = Calculate.pushL_Par();
         }
+
+        private void bR_Par_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.pushR_Par();
+        }
+
+
     }
 }

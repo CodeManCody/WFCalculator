@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.bClear = new System.Windows.Forms.Button();
-            this.bPar = new System.Windows.Forms.Button();
             this.bBack = new System.Windows.Forms.Button();
             this.bAdd = new System.Windows.Forms.Button();
             this.b1 = new System.Windows.Forms.Button();
@@ -49,6 +48,8 @@
             this.bDec = new System.Windows.Forms.Button();
             this.bEqual = new System.Windows.Forms.Button();
             this.displayBox = new System.Windows.Forms.RichTextBox();
+            this.bR_Par = new System.Windows.Forms.Button();
+            this.bL_Par = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bClear
@@ -61,17 +62,6 @@
             this.bClear.Text = "C";
             this.bClear.UseVisualStyleBackColor = true;
             this.bClear.Click += new System.EventHandler(this.bClear_Click);
-            // 
-            // bPar
-            // 
-            this.bPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bPar.Location = new System.Drawing.Point(321, 354);
-            this.bPar.Name = "bPar";
-            this.bPar.Size = new System.Drawing.Size(150, 82);
-            this.bPar.TabIndex = 9;
-            this.bPar.Text = "( )";
-            this.bPar.UseVisualStyleBackColor = true;
-            this.bPar.Click += new System.EventHandler(this.bPar_Click);
             // 
             // bBack
             // 
@@ -280,12 +270,36 @@
             this.displayBox.Text = "";
             this.displayBox.UseWaitCursor = true;
             // 
+            // bR_Par
+            // 
+            this.bR_Par.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bR_Par.Location = new System.Drawing.Point(401, 354);
+            this.bR_Par.Name = "bR_Par";
+            this.bR_Par.Size = new System.Drawing.Size(70, 82);
+            this.bR_Par.TabIndex = 28;
+            this.bR_Par.Text = ")";
+            this.bR_Par.UseVisualStyleBackColor = true;
+            this.bR_Par.Click += new System.EventHandler(this.bR_Par_Click);
+            // 
+            // bL_Par
+            // 
+            this.bL_Par.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bL_Par.Location = new System.Drawing.Point(321, 354);
+            this.bL_Par.Name = "bL_Par";
+            this.bL_Par.Size = new System.Drawing.Size(70, 82);
+            this.bL_Par.TabIndex = 29;
+            this.bL_Par.Text = "(";
+            this.bL_Par.UseVisualStyleBackColor = true;
+            this.bL_Par.Click += new System.EventHandler(this.bL_Par_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(983, 1007);
+            this.Controls.Add(this.bL_Par);
+            this.Controls.Add(this.bR_Par);
             this.Controls.Add(this.bEqual);
             this.Controls.Add(this.bDec);
             this.Controls.Add(this.b0);
@@ -304,7 +318,6 @@
             this.Controls.Add(this.b1);
             this.Controls.Add(this.bAdd);
             this.Controls.Add(this.bBack);
-            this.Controls.Add(this.bPar);
             this.Controls.Add(this.bClear);
             this.Controls.Add(this.displayBox);
             this.Name = "Form1";
@@ -317,7 +330,6 @@
 
         #endregion
         private System.Windows.Forms.Button bClear;
-        private System.Windows.Forms.Button bPar;
         private System.Windows.Forms.Button bBack;
         private System.Windows.Forms.Button bAdd;
         private System.Windows.Forms.Button b1;
@@ -337,6 +349,8 @@
         private System.Windows.Forms.Button bDec;
         private System.Windows.Forms.Button bEqual;
         private System.Windows.Forms.RichTextBox displayBox;
+        private System.Windows.Forms.Button bR_Par;
+        private System.Windows.Forms.Button bL_Par;
     }
 }
 

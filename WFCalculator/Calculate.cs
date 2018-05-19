@@ -14,7 +14,6 @@ namespace WFCalculator
         private static string calcBuff = "";
         private static bool rParWasClicked = false;
         private static bool ansCalculated = false;
-        private static bool temp = false;
         private static double finalAns = 0;
 
         public static string clearBuff()
@@ -42,22 +41,9 @@ namespace WFCalculator
 
         public static string pushOp(string op)
         {
-            if (op == ")")
-            {
-                rParWasClicked = true;
-                temp = rParWasClicked;
-            }
-
-            if ((op == "(" && !String.IsNullOrEmpty(numBuff)) || (op == "(" && temp))
-            {
-                currBuff += numBuff + "*" + op;
-                temp = false;
-            }
-            else
-                currBuff += numBuff + op;
-
             ansCalculated = false;
             rParWasClicked = false;
+            currBuff += numBuff + op;
             calcBuff = currBuff;
             numBuff = "";
             return calcBuff;
@@ -80,6 +66,29 @@ namespace WFCalculator
                 rParWasClicked = false;
                 return "Input error";
             }
+        }
+
+        public static string pushL_Par()
+        {
+            rParWasClicked = false;
+
+            if (!String.IsNullOrEmpty(numBuff))
+                currBuff += numBuff + "*(";
+            else
+                currBuff += numBuff + "(";
+
+            calcBuff = currBuff;
+            numBuff = "";
+            return calcBuff;
+        }
+
+        public static string pushR_Par()
+        {
+            rParWasClicked = true;
+            currBuff += numBuff + ")";
+            calcBuff = currBuff;
+            numBuff = "";
+            return calcBuff;
         }
         
 
