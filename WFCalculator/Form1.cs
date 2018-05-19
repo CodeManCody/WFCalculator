@@ -119,6 +119,9 @@ namespace WFCalculator
             displayBox.Text = Calculate.pushR_Par();
         }
 
-
+        private void bBack_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.backSpace();
+        }
     }
 }

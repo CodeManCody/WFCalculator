@@ -18,6 +18,8 @@ namespace WFCalculator
 
         public static string clearBuff()
         {
+            ansCalculated = false;
+            rParWasClicked = false;
             finalAns = 0;
             numBuff = "";
             calcBuff = "";
@@ -58,6 +60,7 @@ namespace WFCalculator
                 rParWasClicked = false;
                 currBuff = finalAns.ToString();
                 numBuff = "";
+                calcBuff = "";
                 return finalAns.ToString();
             }
             catch (Exception)
@@ -70,6 +73,7 @@ namespace WFCalculator
 
         public static string pushL_Par()
         {
+            ansCalculated = false;
             rParWasClicked = false;
 
             if (!String.IsNullOrEmpty(numBuff))
@@ -84,11 +88,40 @@ namespace WFCalculator
 
         public static string pushR_Par()
         {
+            ansCalculated = false;
             rParWasClicked = true;
             currBuff += numBuff + ")";
             calcBuff = currBuff;
             numBuff = "";
             return calcBuff;
+        }
+
+        public static string backSpace()
+        {
+            if (ansCalculated && !String.IsNullOrEmpty(currBuff))
+            {
+                currBuff = currBuff.Remove(currBuff.Length - 1);
+                return currBuff;
+            }
+
+            else if (!String.IsNullOrEmpty(calcBuff) && Char.IsDigit(calcBuff[calcBuff.Length - 1]))
+            {
+                numBuff = numBuff.Remove(numBuff.Length - 1);
+                calcBuff = currBuff + numBuff;
+                return calcBuff;
+            }
+
+            else if (!String.IsNullOrEmpty(calcBuff) && !Char.IsDigit(calcBuff[calcBuff.Length - 1]))
+            {
+                if (rParWasClicked)
+                    rParWasClicked = false;
+
+                calcBuff = calcBuff.Remove(calcBuff.Length - 1);
+                currBuff = currBuff.Remove(currBuff.Length - 1);
+                return calcBuff;
+            }
+
+            return "";
         }
         
 

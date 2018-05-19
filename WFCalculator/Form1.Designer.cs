@@ -72,6 +72,7 @@
             this.bBack.TabIndex = 10;
             this.bBack.Text = "<--";
             this.bBack.UseVisualStyleBackColor = true;
+            this.bBack.Click += new System.EventHandler(this.bBack_Click);
             // 
             // bAdd
             // 
