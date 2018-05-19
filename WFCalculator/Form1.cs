@@ -12,8 +12,6 @@ namespace WFCalculator
 {
     public partial class Form1 : Form
     {
-        private int parCount = 1;
-
         public Form1()
         {
             InitializeComponent();
@@ -26,6 +24,7 @@ namespace WFCalculator
             bMul.Text = "\u00D7";
             bDiv.Text = "\u00F7";
             bSign.Text = "\u00B1";
+            displayBox.SelectionAlignment = HorizontalAlignment.Right;
         }
 
         private void b1_Click(object sender, EventArgs e)
@@ -100,7 +99,6 @@ namespace WFCalculator
 
         private void bClear_Click(object sender, EventArgs e)
         {
-            parCount = 1;
             displayBox.Text = Calculate.clearBuff();
         }
 

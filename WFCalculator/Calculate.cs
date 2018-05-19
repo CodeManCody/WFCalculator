@@ -106,8 +106,11 @@ namespace WFCalculator
 
             else if (!String.IsNullOrEmpty(calcBuff) && Char.IsDigit(calcBuff[calcBuff.Length - 1]))
             {
+                if(currBuff.Length == calcBuff.Length)
+                    currBuff = currBuff.Remove(currBuff.Length - 1);
+
                 numBuff = numBuff.Remove(numBuff.Length - 1);
-                calcBuff = currBuff + numBuff;
+                calcBuff = calcBuff.Remove(calcBuff.Length - 1);
                 return calcBuff;
             }
 
@@ -118,6 +121,7 @@ namespace WFCalculator
 
                 calcBuff = calcBuff.Remove(calcBuff.Length - 1);
                 currBuff = currBuff.Remove(currBuff.Length - 1);
+                numBuff = currBuff;
                 return calcBuff;
             }
 
