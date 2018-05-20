@@ -14,6 +14,7 @@ namespace WFCalculator
         private static string calcBuff = "";
         private static bool rParWasClicked = false;
         private static bool ansCalculated = false;
+        private static bool numDeletedAfterOp = false;
         private static double finalAns = 0;
 
         public static string clearBuff()
@@ -36,6 +37,12 @@ namespace WFCalculator
 
             ansCalculated = false;
             rParWasClicked = false;
+
+            if(numDeletedAfterOp)
+                while (numBuff.Length != 0)
+                    numBuff = numBuff.Remove(numBuff.Length - 1);
+
+            numDeletedAfterOp = false;
             numBuff += num;
             calcBuff = currBuff + numBuff;
             return calcBuff;
@@ -73,14 +80,13 @@ namespace WFCalculator
 
         public static string pushL_Par()
         {
-            ansCalculated = false;
-            rParWasClicked = false;
-
-            if (!String.IsNullOrEmpty(numBuff))
+            if (!String.IsNullOrEmpty(numBuff) || ansCalculated)
                 currBuff += numBuff + "*(";
             else
                 currBuff += numBuff + "(";
 
+            ansCalculated = false;
+            rParWasClicked = false;
             calcBuff = currBuff;
             numBuff = "";
             return calcBuff;
@@ -104,7 +110,8 @@ namespace WFCalculator
                 return currBuff;
             }
 
-            else if (!String.IsNullOrEmpty(calcBuff) && Char.IsDigit(calcBuff[calcBuff.Length - 1]))
+            else if (!String.IsNullOrEmpty(calcBuff) && 
+                (Char.IsDigit(calcBuff[calcBuff.Length - 1]) || calcBuff[calcBuff.Length - 1] == '.'))
             {
                 if(currBuff.Length == calcBuff.Length)
                     currBuff = currBuff.Remove(currBuff.Length - 1);
@@ -122,6 +129,7 @@ namespace WFCalculator
                 calcBuff = calcBuff.Remove(calcBuff.Length - 1);
                 currBuff = currBuff.Remove(currBuff.Length - 1);
                 numBuff = currBuff;
+                numDeletedAfterOp = true;
                 return calcBuff;
             }
 

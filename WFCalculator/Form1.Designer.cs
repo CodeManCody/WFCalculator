@@ -248,6 +248,7 @@
             this.bDec.Text = ".";
             this.bDec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.bDec.UseVisualStyleBackColor = true;
+            this.bDec.Click += new System.EventHandler(this.bDec_Click);
             // 
             // bEqual
             // 

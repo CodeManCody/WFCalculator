@@ -121,5 +121,10 @@ namespace WFCalculator
         {
             displayBox.Text = Calculate.backSpace();
         }
+
+        private void bDec_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.pushNum(".");
+        }
     }
 }
