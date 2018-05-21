@@ -15,12 +15,15 @@ namespace WFCalculator
         private static bool rParWasClicked = false;
         private static bool ansCalculated = false;
         private static bool numDeletedAfterOp = false;
+        private static bool backClicked = false;
         private static double finalAns = 0;
 
         public static string clearBuff()
         {
             ansCalculated = false;
             rParWasClicked = false;
+            numDeletedAfterOp = false;
+            backClicked = false;
             finalAns = 0;
             numBuff = "";
             calcBuff = "";
@@ -29,32 +32,44 @@ namespace WFCalculator
 
         public static string pushNum(string num)
         {
+            if (backClicked && ansCalculated)
+                numBuff = currBuff;
+
             if (ansCalculated)
                 currBuff = "";
 
             if (rParWasClicked)
                 currBuff += "*";
 
-            ansCalculated = false;
-            rParWasClicked = false;
-
-            if(numDeletedAfterOp)
+            if (numDeletedAfterOp)
                 while (numBuff.Length != 0)
                     numBuff = numBuff.Remove(numBuff.Length - 1);
 
-            numDeletedAfterOp = false;
             numBuff += num;
             calcBuff = currBuff + numBuff;
+
+            ansCalculated = false;
+            rParWasClicked = false;
+            numDeletedAfterOp = false;
+            backClicked = false;
+
             return calcBuff;
         }
 
         public static string pushOp(string op)
         {
-            ansCalculated = false;
-            rParWasClicked = false;
+            if (backClicked)
+                while (numBuff.Length != 0)
+                    numBuff = numBuff.Remove(numBuff.Length - 1);
+
             currBuff += numBuff + op;
             calcBuff = currBuff;
             numBuff = "";
+
+            ansCalculated = false;
+            rParWasClicked = false;
+            backClicked = false;
+
             return calcBuff;
         }
 
@@ -62,18 +77,29 @@ namespace WFCalculator
         {
             try
             {
+                if (calcBuff == "")
+                    return finalAns.ToString();
+
+                /*
+                if (backClicked)
+                    return calcBuff;
+                */
+
+                object test = new DataTable().Compute(calcBuff, null);
                 finalAns = Convert.ToDouble(new DataTable().Compute(calcBuff, null));
-                ansCalculated = true;
-                rParWasClicked = false;
                 currBuff = finalAns.ToString();
                 numBuff = "";
                 calcBuff = "";
+
+                ansCalculated = true;
+                rParWasClicked = false;
+                backClicked = false;
+                
                 return finalAns.ToString();
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 clearBuff();
-                rParWasClicked = false;
                 return "Input error";
             }
         }
@@ -85,25 +111,33 @@ namespace WFCalculator
             else
                 currBuff += numBuff + "(";
 
-            ansCalculated = false;
-            rParWasClicked = false;
             calcBuff = currBuff;
             numBuff = "";
+
+            ansCalculated = false;
+            rParWasClicked = false;
+            backClicked = false;
+
             return calcBuff;
         }
 
         public static string pushR_Par()
         {
-            ansCalculated = false;
-            rParWasClicked = true;
             currBuff += numBuff + ")";
             calcBuff = currBuff;
             numBuff = "";
+
+            rParWasClicked = true;
+            ansCalculated = false;
+            backClicked = false;
+
             return calcBuff;
         }
 
         public static string backSpace()
         {
+            backClicked = true;
+
             if (ansCalculated && !String.IsNullOrEmpty(currBuff))
             {
                 currBuff = currBuff.Remove(currBuff.Length - 1);
@@ -133,22 +167,23 @@ namespace WFCalculator
                 return calcBuff;
             }
 
-            return "";
+            ansCalculated = false;
+            return calcBuff = "";
         }
-        
 
+        public static string Ans()
+        {
+            if (numBuff.Length != 0 || ansCalculated)
+            {
+                clearBuff();
+                return "Input error";
+            }
 
+            ansCalculated = false;
+            rParWasClicked = false;
+            backClicked = false;
 
-
-
-
-
-
-
-
-
-
-
-
+            return pushNum(finalAns.ToString());
+        }
     }
 }

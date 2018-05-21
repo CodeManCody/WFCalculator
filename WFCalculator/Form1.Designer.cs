@@ -34,7 +34,7 @@
             this.b1 = new System.Windows.Forms.Button();
             this.b4 = new System.Windows.Forms.Button();
             this.b7 = new System.Windows.Forms.Button();
-            this.bSign = new System.Windows.Forms.Button();
+            this.bAns = new System.Windows.Forms.Button();
             this.b2 = new System.Windows.Forms.Button();
             this.b3 = new System.Windows.Forms.Button();
             this.bSub = new System.Windows.Forms.Button();
@@ -118,15 +118,16 @@
             this.b7.UseVisualStyleBackColor = true;
             this.b7.Click += new System.EventHandler(this.b7_Click);
             // 
-            // bSign
+            // bAns
             // 
-            this.bSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSign.Location = new System.Drawing.Point(130, 834);
-            this.bSign.Name = "bSign";
-            this.bSign.Size = new System.Drawing.Size(150, 82);
-            this.bSign.TabIndex = 15;
-            this.bSign.Text = "+/-";
-            this.bSign.UseVisualStyleBackColor = true;
+            this.bAns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bAns.Location = new System.Drawing.Point(130, 834);
+            this.bAns.Name = "bAns";
+            this.bAns.Size = new System.Drawing.Size(150, 82);
+            this.bAns.TabIndex = 15;
+            this.bAns.Text = "Ans";
+            this.bAns.UseVisualStyleBackColor = true;
+            this.bAns.Click += new System.EventHandler(this.bAns_Click);
             // 
             // b2
             // 
@@ -314,7 +315,7 @@
             this.Controls.Add(this.bSub);
             this.Controls.Add(this.b3);
             this.Controls.Add(this.b2);
-            this.Controls.Add(this.bSign);
+            this.Controls.Add(this.bAns);
             this.Controls.Add(this.b7);
             this.Controls.Add(this.b4);
             this.Controls.Add(this.b1);
@@ -337,7 +338,7 @@
         private System.Windows.Forms.Button b1;
         private System.Windows.Forms.Button b4;
         private System.Windows.Forms.Button b7;
-        private System.Windows.Forms.Button bSign;
+        private System.Windows.Forms.Button bAns;
         private System.Windows.Forms.Button b2;
         private System.Windows.Forms.Button b3;
         private System.Windows.Forms.Button bSub;

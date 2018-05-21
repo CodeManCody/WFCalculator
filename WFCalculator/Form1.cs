@@ -23,7 +23,6 @@ namespace WFCalculator
             bSub.Text = "\u2212";
             bMul.Text = "\u00D7";
             bDiv.Text = "\u00F7";
-            bSign.Text = "\u00B1";
             displayBox.SelectionAlignment = HorizontalAlignment.Right;
         }
 
@@ -125,6 +124,11 @@ namespace WFCalculator
         private void bDec_Click(object sender, EventArgs e)
         {
             displayBox.Text = Calculate.pushNum(".");
+        }
+
+        private void bAns_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = Calculate.Ans();
         }
     }
 }
