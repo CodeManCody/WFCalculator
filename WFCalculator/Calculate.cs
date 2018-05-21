@@ -35,7 +35,7 @@ namespace WFCalculator
             if (backClicked && ansCalculated)
                 numBuff = currBuff;
 
-            if (ansCalculated)
+            if (ansCalculated && num != ".")
                 currBuff = "";
 
             if (rParWasClicked)
@@ -147,8 +147,11 @@ namespace WFCalculator
             else if (!String.IsNullOrEmpty(calcBuff) && 
                 (Char.IsDigit(calcBuff[calcBuff.Length - 1]) || calcBuff[calcBuff.Length - 1] == '.'))
             {
-                if(currBuff.Length == calcBuff.Length)
+                if (currBuff.Length == calcBuff.Length)
                     currBuff = currBuff.Remove(currBuff.Length - 1);
+                
+                if (calcBuff[calcBuff.Length - 1] == '.')
+                    numBuff = currBuff + ".";
 
                 numBuff = numBuff.Remove(numBuff.Length - 1);
                 calcBuff = calcBuff.Remove(calcBuff.Length - 1);
