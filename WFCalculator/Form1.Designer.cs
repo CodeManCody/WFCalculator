@@ -54,13 +54,17 @@
             // 
             // bClear
             // 
+            this.bClear.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bClear.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bClear.FlatAppearance.BorderSize = 4;
+            this.bClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bClear.Location = new System.Drawing.Point(130, 354);
             this.bClear.Name = "bClear";
             this.bClear.Size = new System.Drawing.Size(150, 82);
             this.bClear.TabIndex = 1;
             this.bClear.Text = "C";
-            this.bClear.UseVisualStyleBackColor = true;
+            this.bClear.UseVisualStyleBackColor = false;
             this.bClear.Click += new System.EventHandler(this.bClear_Click);
             // 
             // bBack
@@ -88,7 +92,7 @@
             // b1
             // 
             this.b1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b1.Location = new System.Drawing.Point(130, 474);
+            this.b1.Location = new System.Drawing.Point(130, 714);
             this.b1.Name = "b1";
             this.b1.Size = new System.Drawing.Size(150, 82);
             this.b1.TabIndex = 12;
@@ -110,7 +114,7 @@
             // b7
             // 
             this.b7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b7.Location = new System.Drawing.Point(130, 714);
+            this.b7.Location = new System.Drawing.Point(130, 474);
             this.b7.Name = "b7";
             this.b7.Size = new System.Drawing.Size(150, 82);
             this.b7.TabIndex = 14;
@@ -132,7 +136,7 @@
             // b2
             // 
             this.b2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b2.Location = new System.Drawing.Point(321, 474);
+            this.b2.Location = new System.Drawing.Point(321, 714);
             this.b2.Name = "b2";
             this.b2.Size = new System.Drawing.Size(150, 82);
             this.b2.TabIndex = 16;
@@ -143,7 +147,7 @@
             // b3
             // 
             this.b3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b3.Location = new System.Drawing.Point(512, 474);
+            this.b3.Location = new System.Drawing.Point(512, 714);
             this.b3.Name = "b3";
             this.b3.Size = new System.Drawing.Size(150, 82);
             this.b3.TabIndex = 17;
@@ -198,7 +202,7 @@
             // b8
             // 
             this.b8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b8.Location = new System.Drawing.Point(321, 714);
+            this.b8.Location = new System.Drawing.Point(321, 474);
             this.b8.Name = "b8";
             this.b8.Size = new System.Drawing.Size(150, 82);
             this.b8.TabIndex = 22;
@@ -209,7 +213,7 @@
             // b9
             // 
             this.b9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b9.Location = new System.Drawing.Point(512, 714);
+            this.b9.Location = new System.Drawing.Point(512, 474);
             this.b9.Name = "b9";
             this.b9.Size = new System.Drawing.Size(150, 82);
             this.b9.TabIndex = 23;
@@ -264,6 +268,7 @@
             // 
             // displayBox
             // 
+            this.displayBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.displayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayBox.Location = new System.Drawing.Point(130, 76);
             this.displayBox.Name = "displayBox";
@@ -300,6 +305,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(983, 1007);
             this.Controls.Add(this.bL_Par);
             this.Controls.Add(this.bR_Par);
@@ -323,6 +329,7 @@
             this.Controls.Add(this.bBack);
             this.Controls.Add(this.bClear);
             this.Controls.Add(this.displayBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 55);
             this.Text = "Calculator";
