@@ -80,12 +80,6 @@ namespace WFCalculator
                 if (calcBuff == "")
                     return finalAns.ToString();
 
-                /*
-                if (backClicked)
-                    return calcBuff;
-                */
-
-                object test = new DataTable().Compute(calcBuff, null);
                 finalAns = Convert.ToDouble(new DataTable().Compute(calcBuff, null));
                 currBuff = finalAns.ToString();
                 numBuff = "";
