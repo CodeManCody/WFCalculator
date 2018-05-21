@@ -11,7 +11,7 @@ namespace WFCalculator
         [STAThread]
         static void Main()
         {
-            if(Environment.OSVersion.Version.Major >= 6)    // fix high DPI fuzziness
+            if (Environment.OSVersion.Version.Major >= 6)
                 SetProcessDPIAware();
 
             Application.EnableVisualStyles();
@@ -19,7 +19,7 @@ namespace WFCalculator
             Application.Run(new Form1());
         }
 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]    // fix high DPI fuzziness
+        [System.Runtime.InteropServices.DllImport("user32.dll")]    // make DPI Aware
         private static extern bool SetProcessDPIAware();
     }
 }
