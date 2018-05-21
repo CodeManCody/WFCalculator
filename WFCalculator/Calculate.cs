@@ -106,7 +106,12 @@ namespace WFCalculator
 
         public static string pushL_Par()
         {
-            if (!String.IsNullOrEmpty(numBuff) || ansCalculated)
+            if (backClicked)
+                while (numBuff.Length != 0)
+                    numBuff = numBuff.Remove(numBuff.Length - 1);
+
+            if (!String.IsNullOrEmpty(numBuff) || ansCalculated || 
+                    (backClicked && !String.IsNullOrEmpty(currBuff)))
                 currBuff += numBuff + "*(";
             else
                 currBuff += numBuff + "(";
@@ -141,6 +146,7 @@ namespace WFCalculator
             if (ansCalculated && !String.IsNullOrEmpty(currBuff))
             {
                 currBuff = currBuff.Remove(currBuff.Length - 1);
+                finalAns = Convert.ToDouble(currBuff);
                 return currBuff;
             }
 
