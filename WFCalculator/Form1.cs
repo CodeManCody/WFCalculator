@@ -12,6 +12,8 @@ namespace WFCalculator
 {
     public partial class Form1 : Form
     {
+        private bool ansCalculated = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -28,107 +30,148 @@ namespace WFCalculator
 
         private void b1_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushNum("1");
+            if (ansCalculated)
+                displayBox.Text = "";
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("1");
         }
 
         private void b2_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushNum("2");
+            if (ansCalculated)
+                displayBox.Text = "";
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("2");
         }
 
         private void b3_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushNum("3");
+            if (ansCalculated)
+                displayBox.Text = "";
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("3");
         }
 
         private void b4_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushNum("4");
+            if (ansCalculated)
+                displayBox.Text = "";
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("4");
         }
 
         private void b5_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushNum("5");
+            if (ansCalculated)
+                displayBox.Text = "";
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("5");
         }
 
         private void b6_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushNum("6");
+            if (ansCalculated)
+                displayBox.Text = "";
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("6");
         }
 
         private void b7_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushNum("7");
+            if (ansCalculated)
+                displayBox.Text = "";
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("7");
         }
 
         private void b8_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushNum("8");
+            if (ansCalculated)
+                displayBox.Text = "";
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("8");
         }
 
         private void b9_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushNum("9");
+            if (ansCalculated)
+                displayBox.Text = "";
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("9");
         }
 
         private void b0_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushNum("0");
+            if (ansCalculated)
+                displayBox.Text = "";
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("0");
         }
 
         private void bAdd_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushOp("+");
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("+");
         }
 
         private void bSub_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushOp("-");
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("-");
         }
 
         private void bMul_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushOp("*");
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("*");
         }
 
         private void bDiv_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushOp("/");
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("/");
         }
 
         private void bClear_Click(object sender, EventArgs e)
         {
+            ansCalculated = false;
             displayBox.Text = Calculate.clearBuff();
         }
 
         private void bEqual_Click(object sender, EventArgs e)
         {
+            ansCalculated = true;
             displayBox.Text = Calculate.calcExp(displayBox.Text);
         }
 
         private void bL_Par_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushL_Par();
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff("(");
         }
 
         private void bR_Par_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushR_Par();
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff(")");
         }
 
         private void bBack_Click(object sender, EventArgs e)
         {
+            ansCalculated = false;
             displayBox.Text = Calculate.backSpace();
         }
 
         private void bDec_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.pushNum(".");
+            ansCalculated = false;
+            displayBox.Text += Calculate.pushBuff(".");
         }
 
         private void bAns_Click(object sender, EventArgs e)
         {
-            displayBox.Text = Calculate.Ans();
+            ansCalculated = false;
+            displayBox.Text += Calculate.Ans();
         }
     }
 }
