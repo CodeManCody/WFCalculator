@@ -15,13 +15,12 @@ namespace WFCalculator
 
         public static string clearBuff()
         {
-            finalAns = 0;
+            if(!ansCalculated)
+                finalAns = 0;
+
+            ansCalculated = false;
             return buff = "";
         }
-
-        
-
-        
 
         public static string calcExp(string exp)
         {
@@ -30,7 +29,6 @@ namespace WFCalculator
                 finalAns = Convert.ToDouble(new DataTable().Compute(buff, null));
                 buff = finalAns.ToString();
                 ansCalculated = true;
-
                 return buff;
             }
             catch (Exception e)
@@ -39,10 +37,6 @@ namespace WFCalculator
                 return "Input error";
             }
         }
-
-       
-
-        
 
         public static string backSpace()
         {
@@ -56,6 +50,8 @@ namespace WFCalculator
 
         public static string Ans()
         {
+            ansCalculated = false;
+            buff += finalAns.ToString();
             return finalAns.ToString();
         }
 
