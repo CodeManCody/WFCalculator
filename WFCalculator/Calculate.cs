@@ -26,6 +26,8 @@ namespace WFCalculator
         {
             try
             {
+                if (buff == "")
+                    return "";
                 finalAns = Convert.ToDouble(new DataTable().Compute(buff, null));
                 buff = finalAns.ToString();
                 ansCalculated = true;
