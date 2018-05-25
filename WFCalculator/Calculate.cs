@@ -22,7 +22,7 @@ namespace WFCalculator
             return buff = "";
         }
 
-        public static string calcExp(string exp)
+        public static string calcExp()
         {
             try
             {
@@ -30,6 +30,11 @@ namespace WFCalculator
                 buff = finalAns.ToString();
                 ansCalculated = true;
                 return buff;
+            }
+            catch (OverflowException o)
+            {
+                clearBuff();
+                return "Value too large";
             }
             catch (Exception e)
             {
@@ -60,7 +65,8 @@ namespace WFCalculator
             if (ansCalculated && Char.IsDigit(obj[0]))
                 clearBuff();
 
-            if (!String.IsNullOrEmpty(buff) && Char.IsDigit(buff[buff.Length - 1]) && obj == "(")
+            if (!String.IsNullOrEmpty(buff) && 
+                    (Char.IsDigit(buff[buff.Length - 1]) || buff[buff.Length - 1] == ')') && obj == "(")
                 obj = "*(";
 
             buff += obj;

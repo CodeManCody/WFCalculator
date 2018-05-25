@@ -141,7 +141,7 @@ namespace WFCalculator
         private void bEqual_Click(object sender, EventArgs e)
         {
             ansCalculated = true;
-            displayBox.Text = Calculate.calcExp(displayBox.Text);
+            displayBox.Text = Calculate.calcExp();
         }
 
         private void bL_Par_Click(object sender, EventArgs e)
