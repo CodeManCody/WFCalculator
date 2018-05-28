@@ -189,8 +189,13 @@ namespace WFCalculator
         {
             ansCalculated = false;
             displayBox.Text += Calculate.Ans();
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
+
+
+       
 
 
         private bool invalidCharEntered = false;
@@ -199,17 +204,20 @@ namespace WFCalculator
         {
             invalidCharEntered = false;
 
-            char test = Convert.ToChar(e.KeyCode);
-
-            if (!((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) ||
-               (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) ||
-               e.KeyCode == Keys.OemQuestion || e.KeyCode == Keys.Oem8 ||
-               e.KeyCode == Keys.OemMinus || e.KeyCode == Keys.Oemplus ||
-               e.KeyCode == Keys.Divide || e.KeyCode == Keys.Multiply || e.KeyCode == Keys.Subtract ||
-               e.KeyCode == Keys.Add || e.KeyCode == Keys.Back ||
-               e.KeyCode == Keys.Decimal || e.KeyCode == Keys.OemPeriod || e.KeyCode == Keys.Delete)
-               || Convert.ToChar(e.KeyCode) == '=')
-                    invalidCharEntered = true;
+              char test = Convert.ToChar(e.KeyCode);
+  
+            if (!(e.KeyCode == Keys.D1 && !e.Shift || e.KeyCode == Keys.D2 && !e.Shift ||
+                  e.KeyCode == Keys.D3 && !e.Shift || e.KeyCode == Keys.D4 && !e.Shift ||
+                  e.KeyCode == Keys.D5 && !e.Shift || e.KeyCode == Keys.D6 && !e.Shift ||
+                  e.KeyCode == Keys.D7 && !e.Shift || e.KeyCode == Keys.D8 || e.KeyCode == Keys.D9 ||
+                  e.KeyCode == Keys.D0 || e.KeyCode == Keys.OemMinus && !e.Shift || 
+                  e.KeyCode == Keys.Oemplus && e.Shift || e.KeyCode == Keys.Back ||
+                  e.KeyCode == Keys.OemPeriod && !e.Shift || e.KeyCode == Keys.OemQuestion && !e.Shift ||
+                  (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) ||
+                  e.KeyCode == Keys.Divide || e.KeyCode == Keys.Multiply || e.KeyCode == Keys.Subtract ||
+                  e.KeyCode == Keys.Add || e.KeyCode == Keys.Decimal || e.KeyCode == Keys.Back ||
+                  e.KeyCode == Keys.Delete) || e.Alt || e.KeyCode == Keys.Enter)
+                invalidCharEntered = true;
 
             if (e.KeyCode == Keys.Delete)
             {
@@ -217,7 +225,7 @@ namespace WFCalculator
                 displayBox.Text = "";
             }
 
-            if( ansCalculated && ((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) ||
+            if ( ansCalculated && ((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) ||
                (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)))
             {
                 Calculate.clearBuff();
@@ -236,11 +244,12 @@ namespace WFCalculator
 
             expr = displayBox.Text;
 
-            if (e.KeyChar == 13 || e.KeyChar == 61)     // Enter or '=' calcs expr
+            if ((e.KeyChar == 13 || e.KeyChar == 61))     // Enter or '=' calcs expr
             {
                 Calculate.pushBuff(expr);
                 displayBox.Text = Calculate.calcExp();
                 ansCalculated = true;
+                displayBox.SelectionStart = displayBox.Text.Length;
             }
 
         }
