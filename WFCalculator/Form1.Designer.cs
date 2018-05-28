@@ -277,6 +277,7 @@
             this.displayBox.TabIndex = 0;
             this.displayBox.Text = "";
             this.displayBox.UseWaitCursor = true;
+            this.displayBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.displayBox_KeyDown);
             // 
             // bR_Par
             // 

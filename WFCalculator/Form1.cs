@@ -14,10 +14,27 @@ namespace WFCalculator
     {
         private bool ansCalculated = false;
 
+        private string expr;
+
+
+
         public Form1()
         {
             InitializeComponent();
+
+            this.KeyPreview = true;
+            this.KeyPress +=
+                new KeyPressEventHandler(displayBox_KeyPress);
+            displayBox.KeyPress +=
+                new KeyPressEventHandler(displayBox_KeyPress);
+
+            expr = displayBox.Text;
         }
+
+
+        
+        
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -26,7 +43,7 @@ namespace WFCalculator
             bMul.Text = "\u00D7";
             bDiv.Text = "\u00F7";
             displayBox.SelectionAlignment = HorizontalAlignment.Right;
-        }
+    }
 
         private void b1_Click(object sender, EventArgs e)
         {
@@ -173,5 +190,61 @@ namespace WFCalculator
             ansCalculated = false;
             displayBox.Text += Calculate.Ans();
         }
+
+
+
+        private bool invalidCharEntered = false;
+
+        private void displayBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            invalidCharEntered = false;
+
+            char test = Convert.ToChar(e.KeyCode);
+
+            if (!((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) ||
+               (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) ||
+               e.KeyCode == Keys.OemQuestion || e.KeyCode == Keys.Oem8 ||
+               e.KeyCode == Keys.OemMinus || e.KeyCode == Keys.Oemplus ||
+               e.KeyCode == Keys.Divide || e.KeyCode == Keys.Multiply || e.KeyCode == Keys.Subtract ||
+               e.KeyCode == Keys.Add || e.KeyCode == Keys.Back ||
+               e.KeyCode == Keys.Decimal || e.KeyCode == Keys.OemPeriod || e.KeyCode == Keys.Delete)
+               || Convert.ToChar(e.KeyCode) == '=')
+                    invalidCharEntered = true;
+
+            if (e.KeyCode == Keys.Delete)
+            {
+                Calculate.clearBuff();
+                displayBox.Text = "";
+            }
+
+            if( ansCalculated && ((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) ||
+               (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)))
+            {
+                Calculate.clearBuff();
+                displayBox.Text = "";
+                ansCalculated = false;
+
+            }
+        }
+
+        private void displayBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ansCalculated = false;
+
+            if (invalidCharEntered)     // only allow nums & ops
+                e.Handled = true;
+
+            expr = displayBox.Text;
+
+            if (e.KeyChar == 13 || e.KeyChar == 61)     // Enter or '=' calcs expr
+            {
+                Calculate.pushBuff(expr);
+                displayBox.Text = Calculate.calcExp();
+                ansCalculated = true;
+            }
+
+        }
+
+        
     }
 }
