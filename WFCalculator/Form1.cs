@@ -213,8 +213,16 @@ namespace WFCalculator
         {
             ansCalculated = false;
 
-            if (Char.IsDigit(displayBox.Text[displayBox.Text.Length - 1]))
-                displayBox.Text += "*(";
+            if (displayBox.Text != "")
+            {
+                if (Char.IsDigit(displayBox.Text[displayBox.Text.Length - 1]) ||
+                    displayBox.Text[displayBox.Text.Length - 1] == ')')
+                {
+                    displayBox.Text += "*(";
+                }
+                else
+                    displayBox.Text += "(";
+            }
             else
                 displayBox.Text += "(";
 
@@ -262,17 +270,18 @@ namespace WFCalculator
 
 
        
+        
 
 
         private bool invalidCharEntered = false;
+        private bool L_ParStroke = false;
 
         private void displayBox_KeyDown(object sender, KeyEventArgs e)
         {
             invalidCharEntered = false;
+            L_ParStroke = false;
 
-              char test = Convert.ToChar(e.KeyCode);
-
-
+            char test = Convert.ToChar(e.KeyCode);
 
             if (!(e.KeyCode == Keys.D1 && !e.Shift || e.KeyCode == Keys.D2 && !e.Shift ||
                   e.KeyCode == Keys.D3 && !e.Shift || e.KeyCode == Keys.D4 && !e.Shift ||
@@ -290,35 +299,48 @@ namespace WFCalculator
             }
 
 
-           
-
-            if (e.KeyCode == Keys.Delete)
+            if ( (e.KeyCode == Keys.Delete) ||
+                 (ansCalculated && ((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D7) ||
+                 e.KeyCode == Keys.D8 && !e.Shift || e.KeyCode == Keys.D9 && !e.Shift ||
+                 e.KeyCode == Keys.D0 && !e.Shift ||
+                 (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9))) )
             {
-                Calculate.clearBuff();
-                displayBox.Text = "";
+                bClear_Click(sender, e);
             }
 
-            if (ansCalculated && ((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) ||
-               (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)))
+            if (e.KeyCode == Keys.D9 && e.Shift)
             {
-                Calculate.clearBuff();
-                displayBox.Text = "";
-                ansCalculated = false;
-
+                L_ParStroke = true;
+                bL_Par_Click(sender, e);
+            }
+            if (expr != "")
+            {
+                if ((e.KeyCode == Keys.D1 && !e.Shift || e.KeyCode == Keys.D2 && !e.Shift ||
+                     e.KeyCode == Keys.D3 && !e.Shift || e.KeyCode == Keys.D4 && !e.Shift ||
+                     e.KeyCode == Keys.D5 && !e.Shift || e.KeyCode == Keys.D6 && !e.Shift ||
+                     e.KeyCode == Keys.D7 && !e.Shift || e.KeyCode == Keys.D8 || e.KeyCode == Keys.D9 ||
+                     e.KeyCode == Keys.D0 || ((e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) && !e.Alt)) &&
+                     expr[expr.Length - 1] == ')')
+                {
+                    expr += '*';
+                }
             }
 
-           // if (e.KeyCode == Keys.Enter)
-             //   displayBox.Text = "";
+   
         }
 
         private void displayBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            expr = displayBox.Text;
             ansCalculated = false;
 
             if (invalidCharEntered)     // only allow nums & ops
                 e.Handled = true;
 
-            expr = displayBox.Text;
+            if (L_ParStroke)
+                e.Handled = true;
+
+            
 
             if ((e.KeyChar == 13 || e.KeyChar == 61))     // Enter or '=' calcs expr
             {
