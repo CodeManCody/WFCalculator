@@ -14,7 +14,7 @@ namespace WFCalculator
     {
         private bool ansCalculated = false;
 
-        private string expr;
+        public static string expr;
 
 
 
@@ -48,147 +48,213 @@ namespace WFCalculator
         private void b1_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
-                displayBox.Text = "";
+                displayBox.Text = Calculate.clearBuff();
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("1");
+            displayBox.Text += "1";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void b2_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
-                displayBox.Text = "";
+                displayBox.Text = Calculate.clearBuff();
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("2");
+            displayBox.Text += "2";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void b3_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
-                displayBox.Text = "";
+                displayBox.Text = Calculate.clearBuff();
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("3");
+            displayBox.Text += "3";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void b4_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
-                displayBox.Text = "";
+                displayBox.Text = Calculate.clearBuff();
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("4");
+            displayBox.Text += "4";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void b5_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
-                displayBox.Text = "";
+                displayBox.Text = Calculate.clearBuff();
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("5");
+            displayBox.Text += "5";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void b6_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
-                displayBox.Text = "";
+                displayBox.Text = Calculate.clearBuff();
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("6");
+            displayBox.Text += "6";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void b7_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
-                displayBox.Text = "";
+                displayBox.Text = Calculate.clearBuff();
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("7");
+            displayBox.Text += "7";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void b8_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
-                displayBox.Text = "";
+                displayBox.Text = Calculate.clearBuff();
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("8");
+            displayBox.Text += "8";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void b9_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
-                displayBox.Text = "";
+                displayBox.Text = Calculate.clearBuff();
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("9");
+            displayBox.Text += "9";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void b0_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
-                displayBox.Text = "";
+                displayBox.Text = Calculate.clearBuff();
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("0");
+            displayBox.Text += "0";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void bAdd_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("+");
+            displayBox.Text += "+";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void bSub_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("-");
+            displayBox.Text += "-";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void bMul_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("*");
+            displayBox.Text += "*";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void bDiv_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("/");
+            displayBox.Text += "/";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void bClear_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
             displayBox.Text = Calculate.clearBuff();
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void bEqual_Click(object sender, EventArgs e)
         {
             ansCalculated = true;
             displayBox.Text = Calculate.calcExp();
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void bL_Par_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff("(");
+
+            if (Char.IsDigit(displayBox.Text[displayBox.Text.Length - 1]))
+                displayBox.Text += "*(";
+            else
+                displayBox.Text += "(";
+
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void bR_Par_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff(")");
+            displayBox.Text += ")";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void bBack_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
             displayBox.Text = Calculate.backSpace();
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void bDec_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += Calculate.pushBuff(".");
+            displayBox.Text += ".";
+            expr = displayBox.Text;
+            displayBox.Focus();
+            displayBox.SelectionStart = displayBox.Text.Length;
         }
 
         private void bAns_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
             displayBox.Text += Calculate.Ans();
+            expr = displayBox.Text;
             displayBox.Focus();
             displayBox.SelectionStart = displayBox.Text.Length;
         }
@@ -205,19 +271,26 @@ namespace WFCalculator
             invalidCharEntered = false;
 
               char test = Convert.ToChar(e.KeyCode);
-  
+
+
+
             if (!(e.KeyCode == Keys.D1 && !e.Shift || e.KeyCode == Keys.D2 && !e.Shift ||
                   e.KeyCode == Keys.D3 && !e.Shift || e.KeyCode == Keys.D4 && !e.Shift ||
                   e.KeyCode == Keys.D5 && !e.Shift || e.KeyCode == Keys.D6 && !e.Shift ||
                   e.KeyCode == Keys.D7 && !e.Shift || e.KeyCode == Keys.D8 || e.KeyCode == Keys.D9 ||
-                  e.KeyCode == Keys.D0 || e.KeyCode == Keys.OemMinus && !e.Shift || 
+                  e.KeyCode == Keys.D0 || e.KeyCode == Keys.OemMinus && !e.Shift ||
                   e.KeyCode == Keys.Oemplus && e.Shift || e.KeyCode == Keys.Back ||
                   e.KeyCode == Keys.OemPeriod && !e.Shift || e.KeyCode == Keys.OemQuestion && !e.Shift ||
                   (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) ||
                   e.KeyCode == Keys.Divide || e.KeyCode == Keys.Multiply || e.KeyCode == Keys.Subtract ||
                   e.KeyCode == Keys.Add || e.KeyCode == Keys.Decimal || e.KeyCode == Keys.Back ||
                   e.KeyCode == Keys.Delete) || e.Alt || e.KeyCode == Keys.Enter)
+            {
                 invalidCharEntered = true;
+            }
+
+
+           
 
             if (e.KeyCode == Keys.Delete)
             {
@@ -225,7 +298,7 @@ namespace WFCalculator
                 displayBox.Text = "";
             }
 
-            if ( ansCalculated && ((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) ||
+            if (ansCalculated && ((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) ||
                (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)))
             {
                 Calculate.clearBuff();
@@ -233,6 +306,9 @@ namespace WFCalculator
                 ansCalculated = false;
 
             }
+
+           // if (e.KeyCode == Keys.Enter)
+             //   displayBox.Text = "";
         }
 
         private void displayBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -246,11 +322,10 @@ namespace WFCalculator
 
             if ((e.KeyChar == 13 || e.KeyChar == 61))     // Enter or '=' calcs expr
             {
-                Calculate.pushBuff(expr);
-                displayBox.Text = Calculate.calcExp();
-                ansCalculated = true;
-                displayBox.SelectionStart = displayBox.Text.Length;
+                expr = expr.TrimEnd('\r', '\n');
+                bEqual_Click(sender, e);
             }
+
 
         }
 

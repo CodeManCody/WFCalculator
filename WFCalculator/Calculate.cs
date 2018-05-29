@@ -19,19 +19,19 @@ namespace WFCalculator
                 finalAns = 0;
 
             ansCalculated = false;
-            return buff = "";
+            return "";
         }
 
         public static string calcExp()
         {
             try
             {
+                buff = Form1.expr;
                 if (buff == "")
-                    return "";
+                    return buff = "";
                 finalAns = Convert.ToDouble(new DataTable().Compute(buff, null));
-                buff = finalAns.ToString();
                 ansCalculated = true;
-                return buff;
+                return finalAns.ToString();
             }
             catch (OverflowException o)
             {
@@ -49,6 +49,8 @@ namespace WFCalculator
         {
             ansCalculated = false;
 
+            buff = Form1.expr;
+
             if(!String.IsNullOrEmpty(buff))
                 buff = buff.Remove(buff.Length - 1);
 
@@ -57,8 +59,9 @@ namespace WFCalculator
 
         public static string Ans()
         {
+
             ansCalculated = false;
-            buff += finalAns.ToString();
+   
             return finalAns.ToString();
         }
 
