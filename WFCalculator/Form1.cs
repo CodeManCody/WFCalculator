@@ -13,6 +13,7 @@ namespace WFCalculator
     public partial class Form1 : Form
     {
         private bool ansCalculated = false;
+        private int index = 0;
 
         public static string expr;
 
@@ -32,10 +33,6 @@ namespace WFCalculator
         }
 
 
-        
-        
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             bBack.Text = "\u2190";
@@ -49,196 +46,186 @@ namespace WFCalculator
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
-            if (expr != "" && expr[expr.Length - 1] == ')')
-            {
-                expr += '*';
-                displayBox.Text = expr;
-            }
+          
             ansCalculated = false;
-            displayBox.Text += "1";
+
+
+
+            _push("1");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void b2_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
-            if (expr != "" && expr[expr.Length - 1] == ')')
-            {
-                expr += '*';
-                displayBox.Text = expr;
-            }
+          
             ansCalculated = false;
-            displayBox.Text += "2";
+
+
+
+            _push("2");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void b3_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
-            if (expr != "" && expr[expr.Length - 1] == ')')
-            {
-                expr += '*';
-                displayBox.Text = expr;
-            }
+         
             ansCalculated = false;
-            displayBox.Text += "3";
+
+
+
+            _push("3");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void b4_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
-            if (expr != "" && expr[expr.Length - 1] == ')')
-            {
-                expr += '*';
-                displayBox.Text = expr;
-            }
+           
             ansCalculated = false;
-            displayBox.Text += "4";
+
+
+
+            _push("4");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void b5_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
-            if (expr != "" && expr[expr.Length - 1] == ')')
-            {
-                expr += '*';
-                displayBox.Text = expr;
-            }
+         
             ansCalculated = false;
-            displayBox.Text += "5";
+
+
+
+            _push("5");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void b6_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
-            if (expr != "" && expr[expr.Length - 1] == ')')
-            {
-                expr += '*';
-                displayBox.Text = expr;
-            }
+           
             ansCalculated = false;
-            displayBox.Text += "6";
+
+
+
+            _push("6");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void b7_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
-            if (expr != "" && expr[expr.Length - 1] == ')')
-            {
-                expr += '*';
-                displayBox.Text = expr;
-            }
+           
             ansCalculated = false;
-            displayBox.Text += "7";
+
+
+
+            _push("7");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void b8_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
-            if (expr != "" && expr[expr.Length - 1] == ')')
-            {
-                expr += '*';
-                displayBox.Text = expr;
-            }
+            
             ansCalculated = false;
-            displayBox.Text += "8";
+
+
+            _push("8");
+
+
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void b9_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
-            if (expr != "" && expr[expr.Length - 1] == ')')
-            {
-                expr += '*';
-                displayBox.Text = expr;
-            }
+            
             ansCalculated = false;
-            displayBox.Text += "9";
+
+            _push("9");
+
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void b0_Click(object sender, EventArgs e)
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
-            if (expr != "" && expr[expr.Length - 1] == ')')
-            {
-                expr += '*';
-                displayBox.Text = expr;
-            }
+           
             ansCalculated = false;
-            displayBox.Text += "0";
+
+
+            _push("0");
+
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void bAdd_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += "+";
+            _push("+");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void bSub_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += "-";
+            _push("-");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+           
         }
 
         private void bMul_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += "*";
+            _push("*");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void bDiv_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += "/";
+            _push("/");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void bClear_Click(object sender, EventArgs e)
@@ -268,26 +255,26 @@ namespace WFCalculator
                 if (Char.IsDigit(displayBox.Text[displayBox.Text.Length - 1]) ||
                     displayBox.Text[displayBox.Text.Length - 1] == ')')
                 {
-                    displayBox.Text += "*(";
+                    _push("*(");
                 }
                 else
-                    displayBox.Text += "(";
+                    _push("(");
             }
             else
-                displayBox.Text += "(";
+                _push("(");
 
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void bR_Par_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += ")";
+            _push(")");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void bBack_Click(object sender, EventArgs e)
@@ -296,31 +283,69 @@ namespace WFCalculator
             displayBox.Text = Calculate.backSpace();
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void bDec_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += ".";
+            _push(".");
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
         private void bAns_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text += Calculate.Ans();
+            _push(Calculate.Ans());
             expr = displayBox.Text;
             displayBox.Focus();
-            displayBox.SelectionStart = displayBox.Text.Length;
+            
         }
 
 
 
        
-        
+        private void _push(string obj)
+        {
+            if (displayBox.Text != "")
+            {
+                if (Char.IsDigit(obj[0]) && displayBox.Text[displayBox.SelectionStart - 1] == ')')
+                    R_Par_Helper();
+            }
+
+            if (displayBox.SelectionStart == displayBox.Text.Length)
+            {
+                displayBox.Text += obj;
+                displayBox.SelectionStart = displayBox.Text.Length;
+            }
+            else
+            {
+                index = displayBox.SelectionStart;
+                displayBox.Text = displayBox.Text.Insert(displayBox.SelectionStart, obj);
+                if (obj == "*(")
+                    displayBox.SelectionStart = index + 2;
+                else
+                    displayBox.SelectionStart = index + 1;
+            }
+        }
+
+        private void R_Par_Helper()
+        {   
+            if (displayBox.SelectionStart == displayBox.Text.Length)
+            {
+                displayBox.Text += "*";
+                displayBox.SelectionStart = displayBox.Text.Length;
+            }
+            else
+            {
+                index = displayBox.SelectionStart;
+                displayBox.Text = displayBox.Text.Insert(displayBox.SelectionStart, "*");
+                displayBox.SelectionStart = index + 1;
+            }
+        }
+
 
 
         private bool invalidCharEntered = false;
@@ -375,12 +400,11 @@ namespace WFCalculator
                      e.KeyCode == Keys.D7 && !e.Shift || e.KeyCode == Keys.D8 && !e.Shift || 
                      e.KeyCode == Keys.D9 && !e.Shift || e.KeyCode == Keys.D0 && !e.Shift ||
                      ((e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) && !e.Alt)) &&
-                     expr[expr.Length - 1] == ')')
+                     displayBox.Text[displayBox.SelectionStart - 1] == ')')
                 {
-                    expr += '*';
-                    displayBox.Text = expr;
+                    R_Par_Helper();
+                    expr = displayBox.Text;
                     displayBox.Focus();
-                    displayBox.SelectionStart = displayBox.Text.Length;
                 }
             }
 
