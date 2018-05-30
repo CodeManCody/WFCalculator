@@ -49,6 +49,11 @@ namespace WFCalculator
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
+            if (expr != "" && expr[expr.Length - 1] == ')')
+            {
+                expr += '*';
+                displayBox.Text = expr;
+            }
             ansCalculated = false;
             displayBox.Text += "1";
             expr = displayBox.Text;
@@ -60,6 +65,11 @@ namespace WFCalculator
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
+            if (expr != "" && expr[expr.Length - 1] == ')')
+            {
+                expr += '*';
+                displayBox.Text = expr;
+            }
             ansCalculated = false;
             displayBox.Text += "2";
             expr = displayBox.Text;
@@ -71,6 +81,11 @@ namespace WFCalculator
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
+            if (expr != "" && expr[expr.Length - 1] == ')')
+            {
+                expr += '*';
+                displayBox.Text = expr;
+            }
             ansCalculated = false;
             displayBox.Text += "3";
             expr = displayBox.Text;
@@ -82,6 +97,11 @@ namespace WFCalculator
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
+            if (expr != "" && expr[expr.Length - 1] == ')')
+            {
+                expr += '*';
+                displayBox.Text = expr;
+            }
             ansCalculated = false;
             displayBox.Text += "4";
             expr = displayBox.Text;
@@ -93,6 +113,11 @@ namespace WFCalculator
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
+            if (expr != "" && expr[expr.Length - 1] == ')')
+            {
+                expr += '*';
+                displayBox.Text = expr;
+            }
             ansCalculated = false;
             displayBox.Text += "5";
             expr = displayBox.Text;
@@ -104,6 +129,11 @@ namespace WFCalculator
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
+            if (expr != "" && expr[expr.Length - 1] == ')')
+            {
+                expr += '*';
+                displayBox.Text = expr;
+            }
             ansCalculated = false;
             displayBox.Text += "6";
             expr = displayBox.Text;
@@ -115,6 +145,11 @@ namespace WFCalculator
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
+            if (expr != "" && expr[expr.Length - 1] == ')')
+            {
+                expr += '*';
+                displayBox.Text = expr;
+            }
             ansCalculated = false;
             displayBox.Text += "7";
             expr = displayBox.Text;
@@ -126,6 +161,11 @@ namespace WFCalculator
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
+            if (expr != "" && expr[expr.Length - 1] == ')')
+            {
+                expr += '*';
+                displayBox.Text = expr;
+            }
             ansCalculated = false;
             displayBox.Text += "8";
             expr = displayBox.Text;
@@ -137,6 +177,11 @@ namespace WFCalculator
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
+            if (expr != "" && expr[expr.Length - 1] == ')')
+            {
+                expr += '*';
+                displayBox.Text = expr;
+            }
             ansCalculated = false;
             displayBox.Text += "9";
             expr = displayBox.Text;
@@ -148,6 +193,11 @@ namespace WFCalculator
         {
             if (ansCalculated)
                 displayBox.Text = Calculate.clearBuff();
+            if (expr != "" && expr[expr.Length - 1] == ')')
+            {
+                expr += '*';
+                displayBox.Text = expr;
+            }
             ansCalculated = false;
             displayBox.Text += "0";
             expr = displayBox.Text;
