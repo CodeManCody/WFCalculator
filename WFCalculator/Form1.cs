@@ -313,16 +313,24 @@ namespace WFCalculator
                 L_ParStroke = true;
                 bL_Par_Click(sender, e);
             }
+
+
+            expr = displayBox.Text;
+
             if (expr != "")
             {
                 if ((e.KeyCode == Keys.D1 && !e.Shift || e.KeyCode == Keys.D2 && !e.Shift ||
                      e.KeyCode == Keys.D3 && !e.Shift || e.KeyCode == Keys.D4 && !e.Shift ||
                      e.KeyCode == Keys.D5 && !e.Shift || e.KeyCode == Keys.D6 && !e.Shift ||
-                     e.KeyCode == Keys.D7 && !e.Shift || e.KeyCode == Keys.D8 || e.KeyCode == Keys.D9 ||
-                     e.KeyCode == Keys.D0 || ((e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) && !e.Alt)) &&
+                     e.KeyCode == Keys.D7 && !e.Shift || e.KeyCode == Keys.D8 && !e.Shift || 
+                     e.KeyCode == Keys.D9 && !e.Shift || e.KeyCode == Keys.D0 && !e.Shift ||
+                     ((e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) && !e.Alt)) &&
                      expr[expr.Length - 1] == ')')
                 {
                     expr += '*';
+                    displayBox.Text = expr;
+                    displayBox.Focus();
+                    displayBox.SelectionStart = displayBox.Text.Length;
                 }
             }
 
