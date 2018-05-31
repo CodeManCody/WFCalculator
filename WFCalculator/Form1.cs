@@ -154,15 +154,16 @@ namespace WFCalculator
         private void bBack_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
+            expr = displayBox.Text;
 
             index = displayBox.SelectionStart;
 
             displayBox.Text = Calculate.backSpace(index);
-            expr = displayBox.Text;
+            
             displayBox.Focus();
 
-            displayBox.SelectionStart = index;           
-
+            if (index != 0)
+                displayBox.SelectionStart = index - 1;           
         }
 
         private void bDec_Click(object sender, EventArgs e)

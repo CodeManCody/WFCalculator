@@ -51,10 +51,16 @@ namespace WFCalculator
 
             buff = Form1.expr;
 
-            if(!String.IsNullOrEmpty(buff))
-                buff = buff.Remove(index - 1);
+            if (String.IsNullOrEmpty(buff))
+                return buff;
 
-            return buff;
+            if (index == 0)
+                return buff;
+            else if (index == buff.Length)
+                return buff = buff.Remove(buff.Length - 1);
+            else
+                return buff = buff.Remove(index - 1, 1);
+            
         }
 
         public static string Ans()
