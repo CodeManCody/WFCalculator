@@ -44,188 +44,72 @@ namespace WFCalculator
 
         private void b1_Click(object sender, EventArgs e)
         {
-            if (ansCalculated)
-                displayBox.Text = Calculate.clearBuff();
-          
-            ansCalculated = false;
-
-
-
-            _push("1");
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
+            _push("1");  
         }
 
         private void b2_Click(object sender, EventArgs e)
         {
-            if (ansCalculated)
-                displayBox.Text = Calculate.clearBuff();
-          
-            ansCalculated = false;
-
-
-
-            _push("2");
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
+            _push("2"); 
         }
 
         private void b3_Click(object sender, EventArgs e)
         {
-            if (ansCalculated)
-                displayBox.Text = Calculate.clearBuff();
-         
-            ansCalculated = false;
-
-
-
-            _push("3");
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
+            _push("3"); 
         }
 
         private void b4_Click(object sender, EventArgs e)
         {
-            if (ansCalculated)
-                displayBox.Text = Calculate.clearBuff();
-           
-            ansCalculated = false;
-
-
-
             _push("4");
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
         private void b5_Click(object sender, EventArgs e)
         {
-            if (ansCalculated)
-                displayBox.Text = Calculate.clearBuff();
-         
-            ansCalculated = false;
-
-
-
-            _push("5");
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
+            _push("5"); 
         }
 
         private void b6_Click(object sender, EventArgs e)
         {
-            if (ansCalculated)
-                displayBox.Text = Calculate.clearBuff();
-           
-            ansCalculated = false;
-
-
-
             _push("6");
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
         private void b7_Click(object sender, EventArgs e)
         {
-            if (ansCalculated)
-                displayBox.Text = Calculate.clearBuff();
-           
-            ansCalculated = false;
-
-
-
             _push("7");
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
         private void b8_Click(object sender, EventArgs e)
         {
-            if (ansCalculated)
-                displayBox.Text = Calculate.clearBuff();
-            
-            ansCalculated = false;
-
-
             _push("8");
-
-
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
         private void b9_Click(object sender, EventArgs e)
         {
-            if (ansCalculated)
-                displayBox.Text = Calculate.clearBuff();
-            
-            ansCalculated = false;
-
             _push("9");
-
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
         private void b0_Click(object sender, EventArgs e)
         {
-            if (ansCalculated)
-                displayBox.Text = Calculate.clearBuff();
-           
-            ansCalculated = false;
-
-
             _push("0");
-
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
         private void bAdd_Click(object sender, EventArgs e)
         {
-            ansCalculated = false;
             _push("+");
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
         private void bSub_Click(object sender, EventArgs e)
         {
-            ansCalculated = false;
             _push("-");
-            expr = displayBox.Text;
-            displayBox.Focus();
-           
         }
 
         private void bMul_Click(object sender, EventArgs e)
         {
-            ansCalculated = false;
             _push("*");
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
         private void bDiv_Click(object sender, EventArgs e)
         {
-            ansCalculated = false;
             _push("/");
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
         private void bClear_Click(object sender, EventArgs e)
@@ -248,8 +132,6 @@ namespace WFCalculator
 
         private void bL_Par_Click(object sender, EventArgs e)
         {
-            ansCalculated = false;
-
             if (displayBox.Text != "")
             {
                 if (Char.IsDigit(displayBox.Text[displayBox.Text.Length - 1]) ||
@@ -262,46 +144,35 @@ namespace WFCalculator
             }
             else
                 _push("(");
-
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
         private void bR_Par_Click(object sender, EventArgs e)
         {
-            ansCalculated = false;
             _push(")");
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
         private void bBack_Click(object sender, EventArgs e)
         {
             ansCalculated = false;
-            displayBox.Text = Calculate.backSpace();
+
+            index = displayBox.SelectionStart;
+
+            displayBox.Text = Calculate.backSpace(index);
             expr = displayBox.Text;
             displayBox.Focus();
-            
+
+            displayBox.SelectionStart = index;           
+
         }
 
         private void bDec_Click(object sender, EventArgs e)
         {
-            ansCalculated = false;
             _push(".");
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
         private void bAns_Click(object sender, EventArgs e)
         {
-            ansCalculated = false;
             _push(Calculate.Ans());
-            expr = displayBox.Text;
-            displayBox.Focus();
-            
         }
 
 
@@ -309,6 +180,11 @@ namespace WFCalculator
        
         private void _push(string obj)
         {
+            if (ansCalculated && Char.IsDigit(obj[0]))
+                displayBox.Text = Calculate.clearBuff();
+
+            ansCalculated = false;
+
             if (displayBox.Text != "")
             {
                 if (Char.IsDigit(obj[0]) && displayBox.Text[displayBox.SelectionStart - 1] == ')')
@@ -329,6 +205,9 @@ namespace WFCalculator
                 else
                     displayBox.SelectionStart = index + 1;
             }
+
+            expr = displayBox.Text;
+            displayBox.Focus();
         }
 
         private void R_Par_Helper()

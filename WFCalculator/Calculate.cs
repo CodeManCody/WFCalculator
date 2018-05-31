@@ -45,14 +45,14 @@ namespace WFCalculator
             }
         }
 
-        public static string backSpace()
+        public static string backSpace(int index)
         {
             ansCalculated = false;
 
             buff = Form1.expr;
 
             if(!String.IsNullOrEmpty(buff))
-                buff = buff.Remove(buff.Length - 1);
+                buff = buff.Remove(index - 1);
 
             return buff;
         }
