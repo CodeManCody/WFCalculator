@@ -71,18 +71,6 @@ namespace WFCalculator
             return finalAns.ToString();
         }
 
-        public static string pushBuff(string obj)
-        {
-            if (ansCalculated && Char.IsDigit(obj[0]))
-                clearBuff();
-
-            if (!String.IsNullOrEmpty(buff) && 
-                    (Char.IsDigit(buff[buff.Length - 1]) || buff[buff.Length - 1] == ')') && obj == "(")
-                obj = "*(";
-
-            buff += obj;
-            ansCalculated = false;
-            return obj;
-        }
+       
     }
 }
