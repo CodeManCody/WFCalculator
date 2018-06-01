@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace WFCalculator
 {
@@ -14,9 +15,7 @@ namespace WFCalculator
     {
         private bool ansCalculated = false;
         private int index = 0;
-
         public static string expr;
-
 
 
         public Form1()
@@ -32,7 +31,6 @@ namespace WFCalculator
             expr = displayBox.Text;
         }
 
-
         private void Form1_Load(object sender, EventArgs e)
         {
             bBack.Text = "\u2190";
@@ -40,7 +38,7 @@ namespace WFCalculator
             bMul.Text = "\u00D7";
             bDiv.Text = "\u00F7";
             displayBox.SelectionAlignment = HorizontalAlignment.Right;
-    }
+        }
 
         private void b1_Click(object sender, EventArgs e)
         {
@@ -159,7 +157,8 @@ namespace WFCalculator
             index = displayBox.SelectionStart;
 
             displayBox.Text = Calculate.backSpace(index);
-            
+            expr = displayBox.Text;
+
             displayBox.Focus();
 
             if (index != 0)
@@ -178,7 +177,6 @@ namespace WFCalculator
 
 
 
-       
         private void _push(string obj)
         {
             if (ansCalculated && Char.IsDigit(obj[0]))
@@ -186,7 +184,7 @@ namespace WFCalculator
 
             ansCalculated = false;
 
-            if (displayBox.Text != "")
+            if (displayBox.Text != "" && displayBox.SelectionStart != 0)
             {
                 if (Char.IsDigit(obj[0]) && displayBox.Text[displayBox.SelectionStart - 1] == ')')
                     R_Par_Helper();
@@ -253,7 +251,6 @@ namespace WFCalculator
                 invalidCharEntered = true;
             }
 
-
             if ( (e.KeyCode == Keys.Delete) ||
                  (ansCalculated && ((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D7) ||
                  e.KeyCode == Keys.D8 && !e.Shift || e.KeyCode == Keys.D9 && !e.Shift ||
@@ -269,10 +266,9 @@ namespace WFCalculator
                 bL_Par_Click(sender, e);
             }
 
-
             expr = displayBox.Text;
 
-            if (expr != "")
+            if (expr != "" && displayBox.SelectionStart != 0)
             {
                 if ((e.KeyCode == Keys.D1 && !e.Shift || e.KeyCode == Keys.D2 && !e.Shift ||
                      e.KeyCode == Keys.D3 && !e.Shift || e.KeyCode == Keys.D4 && !e.Shift ||
@@ -287,8 +283,6 @@ namespace WFCalculator
                     displayBox.Focus();
                 }
             }
-
-   
         }
 
         private void displayBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -302,17 +296,11 @@ namespace WFCalculator
             if (L_ParStroke)
                 e.Handled = true;
 
-            
-
             if ((e.KeyChar == 13 || e.KeyChar == 61))     // Enter or '=' calcs expr
             {
-                expr = expr.TrimEnd('\r', '\n');
+                expr = Regex.Replace(expr, @"\t|\n|\r", "");
                 bEqual_Click(sender, e);
             }
-
-
-        }
-
-        
+        }   
     }
 }

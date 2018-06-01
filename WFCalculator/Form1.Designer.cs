@@ -269,6 +269,7 @@
             // displayBox
             // 
             this.displayBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.displayBox.Cursor = System.Windows.Forms.Cursors.Cross;
             this.displayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayBox.Location = new System.Drawing.Point(130, 76);
             this.displayBox.Name = "displayBox";
@@ -276,7 +277,6 @@
             this.displayBox.Size = new System.Drawing.Size(724, 225);
             this.displayBox.TabIndex = 0;
             this.displayBox.Text = "";
-            this.displayBox.UseWaitCursor = true;
             this.displayBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.displayBox_KeyDown);
             // 
             // bR_Par
@@ -331,6 +331,7 @@
             this.Controls.Add(this.bClear);
             this.Controls.Add(this.displayBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 55);
             this.Text = "Calculator";
